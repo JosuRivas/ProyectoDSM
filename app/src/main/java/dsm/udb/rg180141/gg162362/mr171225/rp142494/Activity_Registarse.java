@@ -3,13 +3,12 @@ package dsm.udb.rg180141.gg162362.mr171225.rp142494;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -17,31 +16,34 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class MainActivity extends AppCompatActivity {
+public class Activity_Registarse extends AppCompatActivity {
 
-    private EditText correoEDT,contrasenaEDT;
-    private Button botonIngresar;
-    private TextView txtRegistrarse;
+    private EditText contrasenaEDT,  correoEDT, nombreEDT;
+    private Switch switchTipoCuenta;
+    private Button botonRegistrar;
+
     private FirebaseAuth miAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.TemaSplash);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_registarse);
 
-        correoEDT = (EditText) findViewById(R.id.loginCorreoEDT);
-        contrasenaEDT = (EditText) findViewById(R.id.loginContrasenaEDT);
-        botonIngresar = (Button) findViewById(R.id.botonIniciarSesion);
-        txtRegistrarse = (TextView) findViewById(R.id.txtIrRegistrar);
+        contrasenaEDT = (EditText) findViewById(R.id.registrarContrasenaEDT);
+        correoEDT = (EditText) findViewById(R.id.registrarCorreoEDT);
+        nombreEDT = (EditText) findViewById(R.id.registrarNombreEDT);
+        switchTipoCuenta = (Switch) findViewById(R.id.switchTipoCuenta);
+        botonRegistrar = (Button) findViewById(R.id.botonRegistrarse);
+
         miAuth = FirebaseAuth.getInstance();
 
-        botonIngresar.setOnClickListener(new View.OnClickListener() {
+        botonRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String correo,contrasena;
+                String correo,contrasena,nombre;
                 correo = correoEDT.getText().toString();
                 contrasena = contrasenaEDT.getText().toString();
+                nombre = nombreEDT.getText().toString();
 
                 if (TextUtils.isEmpty(correo)) {
                     Toast.makeText(getApplicationContext(), "Debe ingresar un correo", Toast.LENGTH_LONG).show();
@@ -51,28 +53,24 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Debe ingresar una contraseña", Toast.LENGTH_LONG).show();
                     return;
                 }
+                if (TextUtils.isEmpty(nombre)) {
+                    Toast.makeText(getApplicationContext(), "Debe ingresar una nombre", Toast.LENGTH_LONG).show();
+                    return;
+                }
 
-                miAuth.signInWithEmailAndPassword(correo,contrasena).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                miAuth.createUserWithEmailAndPassword(correo,contrasena).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
-                            Toast.makeText(getApplicationContext(),"Credenciales correctas",Toast.LENGTH_LONG).show();
-                            /*Intent intent = new Intent(MainActivity.this,);
-                            startActivity(intent);*/
+                            Toast.makeText(getApplicationContext(),"Registrado correctamente!",Toast.LENGTH_LONG).show();
                         }else{
-                            Toast.makeText(getApplicationContext(),"Credenciales incorrectas",Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Error al registrarse, intentelo de nuevo", Toast.LENGTH_LONG).show();
                         }
                     }
                 });
             }
         });
 
-        txtRegistrarse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,Activity_Registarse.class);
-                startActivity(intent);
-            }
-        });
+
     }
 }

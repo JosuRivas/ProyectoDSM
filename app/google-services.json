@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "518334500313",
+    "firebase_url": "https://proyectocatedradsm-default-rtdb.firebaseio.com",
+    "project_id": "proyectocatedradsm",
+    "storage_bucket": "proyectocatedradsm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:518334500313:android:0da9a5b41a263e43c99dc8",
+        "android_client_info": {
+          "package_name": "dsm.udb.rg180141.gg162362.mr171225.rp142494"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "518334500313-b54v92i5ovaonvu0qoopm6400jedna0k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWnME-8SQg03cx4pQWm68jIUe1zYY9zZc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "518334500313-b54v92i5ovaonvu0qoopm6400jedna0k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
