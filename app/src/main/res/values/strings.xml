@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">ProyectoCatedra</string>
+
+    <string-array name="array_departamentos">
+        <item>Santa Ana</item>
+        <item>San Salvador</item>
+        <item>Ahuachapán</item>
+        <item>Usulután</item>
+        <item>La Libertad</item>
+        <item>San Vicente</item>
+        <item>San Miguel</item>
+        <item>Cuscatlán</item>
+        <item>Cabañas</item>
+        <item>La Unión</item>
+        <item>Sonsonate</item>
+        <item>Morazán</item>
+        <item>La Paz</item>
+    </string-array>
+
+    <string-array name="lista_negocios">
+        <item>Médico</item>
+        <item>Mecánico</item>
+        <item>Estilista</item>
+        <item>Mascotas</item>
+        <item>Zapatería</item>
+        <item>Costurería</item>
+    </string-array>
 </resources>
