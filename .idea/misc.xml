@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Proyectos UDB/ProyectoDSM/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Proyectos UDB/ProyectoDSM/app/src/main/res/layout/activity_pantalla_principal.xml" value="0.25" />
+        <entry key="..\:/Proyectos UDB/ProyectoDSM/app/src/main/res/layout/activity_registarse.xml" value="0.22" />
+        <entry key="..\:/Proyectos UDB/ProyectoDSM/app/src/main/res/layout/activity_splash.xml" value="0.1" />
+        <entry key="..\:/Proyectos UDB/ProyectoDSM/app/src/main/res/layout/encabezado.xml" value="0.5" />
+        <entry key="..\:/Proyectos UDB/ProyectoDSM/app/src/main/res/layout/fragment_fragmento_inicio.xml" value="0.25" />
+        <entry key="..\:/Proyectos UDB/ProyectoDSM/app/src/main/res/menu/menu_principal.xml" value="0.22" />
         <entry key="..\:/Users/Josu R/AndroidStudioProjects/ProyectoCatedra/app/src/main/res/drawable/fondo_splash.xml" value="0.1965" />
         <entry key="..\:/Users/Josu R/AndroidStudioProjects/ProyectoCatedra/app/src/main/res/drawable/gradiente_fondo.xml" value="0.166" />
         <entry key="..\:/Users/Josu R/AndroidStudioProjects/ProyectoCatedra/app/src/main/res/layout/activity_main.xml" value="0.33" />
