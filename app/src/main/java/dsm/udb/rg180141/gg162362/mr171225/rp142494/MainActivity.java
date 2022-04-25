@@ -16,6 +16,10 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import dsm.udb.rg180141.gg162362.mr171225.rp142494.modelos.Negocio;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         botonIngresar = (Button) findViewById(R.id.botonIniciarSesion);
         txtRegistrarse = (TextView) findViewById(R.id.txtIrRegistrar);
         miAuth = FirebaseAuth.getInstance();
+
 
         botonIngresar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,9 +61,8 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
-                            Toast.makeText(getApplicationContext(),"Credenciales correctas",Toast.LENGTH_LONG).show();
-                            /*Intent intent = new Intent(MainActivity.this,);
-                            startActivity(intent);*/
+                            Intent intent = new Intent(MainActivity.this,Lista_Negocios.class);
+                            startActivity(intent);
                         }else{
                             Toast.makeText(getApplicationContext(),"Credenciales incorrectas",Toast.LENGTH_LONG).show();
                         }

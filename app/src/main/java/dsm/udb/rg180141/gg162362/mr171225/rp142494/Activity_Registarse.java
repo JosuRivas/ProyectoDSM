@@ -3,6 +3,7 @@ package dsm.udb.rg180141.gg162362.mr171225.rp142494;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -58,16 +59,25 @@ public class Activity_Registarse extends AppCompatActivity {
                     return;
                 }
 
-                miAuth.createUserWithEmailAndPassword(correo,contrasena).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()){
-                            Toast.makeText(getApplicationContext(),"Registrado correctamente!",Toast.LENGTH_LONG).show();
-                        }else{
-                            Toast.makeText(getApplicationContext(), "Error al registrarse, intentelo de nuevo", Toast.LENGTH_LONG).show();
+                if (switchTipoCuenta.isChecked()){
+                    Intent intent = new Intent(Activity_Registarse.this,Registro_Negocio.class);
+                    startActivity(intent);
+                }else{
+                    miAuth.createUserWithEmailAndPassword(correo,contrasena).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()){
+                                Toast.makeText(getApplicationContext(),"Registrado correctamente!",Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(Activity_Registarse.this,MainActivity.class);
+                                startActivity(intent);
+                            }else{
+                                Toast.makeText(getApplicationContext(), "Error al registrarse, intentelo de nuevo", Toast.LENGTH_LONG).show();
+                            }
                         }
-                    }
-                });
+                    });
+                }
+
+
             }
         });
 

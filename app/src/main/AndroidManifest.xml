@@ -9,6 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoCatedra">
+
+        <activity
+            android:name=".Registro_Negocio"
+            android:exported="false" />
+        <activity
+            android:name=".Lista_Negocios"
+            android:exported="false" />
         <activity
             android:name=".splash"
             android:exported="true"
@@ -24,6 +31,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
+            android:exported="false" />
             android:exported="false"></activity>
 
         <meta-data
