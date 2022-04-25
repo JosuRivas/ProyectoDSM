@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,7 +19,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import dsm.udb.rg180141.gg162362.mr171225.rp142494.adapters.Recycler_Negocios_Adapter;
 import dsm.udb.rg180141.gg162362.mr171225.rp142494.modelos.Negocio;
@@ -72,7 +70,7 @@ public class Lista_Negocios extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.menu_principal,menu);
+        getMenuInflater().inflate(R.menu.menu_busqueda,menu);
         MenuItem item = menu.findItem(R.id.barraBusqueda);
         SearchView searchView = (SearchView) item.getActionView();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
