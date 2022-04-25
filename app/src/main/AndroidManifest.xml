@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoCatedra">
+
         <activity
             android:name=".Registro_Negocio"
             android:exported="false" />
@@ -31,6 +32,11 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" />
+            android:exported="false"></activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

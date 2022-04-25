@@ -1,12 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item
-        android:id="@+id/barraBusqueda"
-        android:title="Buscar..."
-        android:icon="@drawable/ic_baseline_search_24"
-        app:showAsAction="always|collapseActionView"
-        app:actionViewClass="androidx.appcompat.widget.SearchView"/>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_inicio"
+            android:title="Inicio"
+            android:icon="@drawable/inicio"/>
+
+        <item
+            android:id="@+id/nav_login"
+            android:title="Login"
+            android:icon="@drawable/login"/>
+    </group>
+
+
+
+        <item
+            android:title="Secciones">
+            <menu>
+                <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_doctor"
+                    android:title="Doctor"
+                    android:icon="@drawable/icon_doctor"/>
+
+                <item
+                    android:id="@+id/nav_mecanico"
+                    android:title="Mecánico"
+                    android:icon="@drawable/icon_mecanico"/>
+
+                <item
+                    android:id="@+id/nav_grua"
+                    android:title="Servicio de Grua"
+                    android:icon="@drawable/icon_grua"/>
+
+                <item
+                    android:id="@+id/nav_fontaneria"
+                    android:title="Fontaneria"
+                    android:icon="@drawable/icon_fontanero"/>
+
+                <item
+                    android:id="@+id/nav_cerrajeria"
+                    android:title="Cerrajeria"
+                    android:icon="@drawable/icon_cerrajero"/>
+
+                <item
+                    android:id="@+id/nav_electricista"
+                    android:title="Electricista"
+                    android:icon="@drawable/icon_electricista"/>
+
+                <item
+                    android:id="@+id/nav_cosmetologia"
+                    android:title="Cosmetología"
+                    android:icon="@drawable/icon_cosmetologia"/>
+
+                <item
+                    android:id="@+id/nav_jardinero"
+                    android:title="Jardineria"
+                    android:icon="@drawable/icon_jardinero"/>
+                </group>
+            </menu>
+        </item>
+
+
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_salir"
+            android:title="Salir"
+            android:icon="@drawable/icon_sesion"/>
+
+       </group>
 
 </menu>
