@@ -11,6 +11,10 @@
         android:theme="@style/Theme.ProyectoCatedra">
 
         <activity
+            android:name=".activity_pantalla_principal"
+            android:exported="false"/>
+
+        <activity
             android:name=".Registro_Negocio"
             android:exported="false" />
         <activity
@@ -31,9 +35,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false" />
-            android:exported="false"></activity>
-
+            android:exported="false"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

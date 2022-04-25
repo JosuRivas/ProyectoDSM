@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
-                            Intent intent = new Intent(MainActivity.this,Lista_Negocios.class);
+                            Intent intent = new Intent(MainActivity.this,activity_pantalla_principal.class);
                             startActivity(intent);
                         }else{
                             Toast.makeText(getApplicationContext(),"Credenciales incorrectas",Toast.LENGTH_LONG).show();
