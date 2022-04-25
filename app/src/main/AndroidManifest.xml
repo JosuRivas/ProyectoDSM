@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="dsm.udb.rg180141.gg162362.mr171225.rp142494" >
+    package="dsm.udb.rg180141.gg162362.mr171225.rp142494">
 
     <application
         android:allowBackup="true"
@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ProyectoCatedra" >
+        android:theme="@style/Theme.ProyectoCatedra">
         <activity
             android:name=".splash"
             android:exported="true"
@@ -19,14 +19,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".Activity_Registarse"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false" >
-        </activity>
+            android:exported="false"></activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
