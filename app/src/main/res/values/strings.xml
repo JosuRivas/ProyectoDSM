@@ -22,8 +22,12 @@
         <item>Mecánico</item>
         <item>Estilista</item>
         <item>Mascotas</item>
-        <item>Zapatería</item>
-        <item>Costurería</item>
+        <item>Sastrería</item>
+        <item>Grúa</item>
+        <item>Fontanería</item>
+        <item>Cerrajería</item>
+        <item>Electricismo</item>
+        <item>Jardinería</item>
     </string-array>
 
     <!--Menu Principal-->

@@ -16,6 +16,10 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import dsm.udb.rg180141.gg162362.mr171225.rp142494.modelos.Usuario;
 
 public class Activity_Registarse extends AppCompatActivity {
 
@@ -24,6 +28,7 @@ public class Activity_Registarse extends AppCompatActivity {
     private Button botonRegistrar;
 
     private FirebaseAuth miAuth;
+    private DatabaseReference miDatabaseUsuarios,miDatabaseNegocios;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +41,8 @@ public class Activity_Registarse extends AppCompatActivity {
         switchTipoCuenta = (Switch) findViewById(R.id.switchTipoCuenta);
         botonRegistrar = (Button) findViewById(R.id.botonRegistrarse);
 
+        miDatabaseUsuarios = FirebaseDatabase.getInstance().getReference("usuarios");
+        miDatabaseNegocios = FirebaseDatabase.getInstance().getReference("negocios");
         miAuth = FirebaseAuth.getInstance();
 
         botonRegistrar.setOnClickListener(new View.OnClickListener() {
@@ -59,24 +66,42 @@ public class Activity_Registarse extends AppCompatActivity {
                     return;
                 }
 
-                if (switchTipoCuenta.isChecked()){
-                    Intent intent = new Intent(Activity_Registarse.this,Registro_Negocio.class);
-                    startActivity(intent);
-                }else{
-                    miAuth.createUserWithEmailAndPassword(correo,contrasena).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()){
-                                Toast.makeText(getApplicationContext(),"Registrado correctamente!",Toast.LENGTH_LONG).show();
-                                Intent intent = new Intent(Activity_Registarse.this,MainActivity.class);
+                miAuth.createUserWithEmailAndPassword(correo,contrasena).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()){
+
+                            String uid = task.getResult().getUser().getUid();
+                            String id = miDatabaseUsuarios.push().getKey();
+                            Toast.makeText(getApplicationContext(),"Registrado correctamente!",Toast.LENGTH_LONG).show();
+
+                            if (switchTipoCuenta.isChecked()){
+                                String idNegocio = miDatabaseNegocios.push().getKey();
+                                Usuario usuario = new Usuario(correo,"negocio",uid);
+                                usuario.setIdNegocio(idNegocio);
+                                miDatabaseUsuarios.child(id).setValue(usuario);
+                                Intent intent = new Intent(Activity_Registarse.this,Registro_Negocio.class);
+                                intent.putExtra("idNegocio",idNegocio);
                                 startActivity(intent);
                             }else{
-                                Toast.makeText(getApplicationContext(), "Error al registrarse, intentelo de nuevo", Toast.LENGTH_LONG).show();
-                            }
-                        }
-                    });
-                }
+                                Usuario usuario = new Usuario(correo,"cliente",uid);
+                                miDatabaseUsuarios.child(id).setValue(usuario).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()){
+                                            Intent intent = new Intent(Activity_Registarse.this,MainActivity.class);
+                                            startActivity(intent);
+                                        }
+                                    }
+                                });
 
+                            }
+
+                        }else{
+                            Toast.makeText(getApplicationContext(), "Error al registrarse, intentelo de nuevo", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
 
             }
         });
