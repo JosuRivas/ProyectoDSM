@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         botonIngresar = (Button) findViewById(R.id.botonIniciarSesion);
         txtRegistrarse = (TextView) findViewById(R.id.txtIrRegistrar);
         miAuth = FirebaseAuth.getInstance();
+
         miDatabase = FirebaseDatabase.getInstance().getReference("usuarios");
 
         botonIngresar.setOnClickListener(new View.OnClickListener() {

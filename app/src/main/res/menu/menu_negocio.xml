@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_inicio"
+            android:title="Inicio"
+            android:icon="@drawable/inicio"/>
+
+        <item
+            android:id="@+id/nav_login"
+            android:title="Login"
+            android:icon="@drawable/login"/>
+    </group>
+
+    <item
+        android:title="Secciones">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_buscar"
+                    android:title="Buscar"
+                    android:icon="@drawable/ic_search"/>
+
+                <item
+                    android:id="@+id/nav_ingresar"
+                    android:title="Ingresar"
+                    android:icon="@drawable/ic_add"/>
+
+                <item
+                    android:id="@+id/nav_editar"
+                    android:title="Editar"
+                    android:icon="@drawable/ic_edit"/>
+
+                <item
+                    android:id="@+id/nav_eliminar"
+                    android:title="Eliminar"
+                    android:icon="@drawable/ic_delete"/>
+
+            </group>
+        </menu>
+    </item>
+
+</menu>
