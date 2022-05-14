@@ -9,11 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoCatedra">
-
+        <activity
+            android:name=".Dashboard_Negocio"
+            android:exported="false" />
+        <activity
+            android:name=".contacto_negocio"
+            android:exported="false" />
         <activity
             android:name=".activity_pantalla_principal"
-            android:exported="false"/>
-
+            android:exported="false" />
         <activity
             android:name=".Registro_Negocio"
             android:exported="false" />
@@ -35,7 +39,8 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false"/>
+            android:exported="false" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

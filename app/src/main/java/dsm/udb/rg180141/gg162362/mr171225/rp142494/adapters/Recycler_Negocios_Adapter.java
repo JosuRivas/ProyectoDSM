@@ -1,6 +1,7 @@
 package dsm.udb.rg180141.gg162362.mr171225.rp142494.adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,18 +23,20 @@ public class Recycler_Negocios_Adapter extends RecyclerView.Adapter<Recycler_Neg
     Context contexto;
     ArrayList<Negocio> listaNegocios;
     ArrayList<Negocio> listaNegociosEntera;
+    private OnItemListener mOnItemListener;
 
-    public Recycler_Negocios_Adapter(Context contexto, ArrayList<Negocio> listaNegocios) {
+    public Recycler_Negocios_Adapter(Context contexto, ArrayList<Negocio> listaNegocios,OnItemListener onItemListener) {
         this.contexto = contexto;
         this.listaNegocios = listaNegocios;
         this.listaNegociosEntera = new ArrayList<Negocio>(listaNegocios);
+        this.mOnItemListener = onItemListener;
     }
 
     @NonNull
     @Override
     public Recycler_Negocios_Adapter.View_Holder_Negocio onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(contexto).inflate(R.layout.item_lista_negocios,parent,false);
-        return new View_Holder_Negocio(view);
+        return new View_Holder_Negocio(view,mOnItemListener);
     }
 
     @Override
@@ -42,6 +45,7 @@ public class Recycler_Negocios_Adapter extends RecyclerView.Adapter<Recycler_Neg
         holder.TVNombreNegocio.setText(negocio.getNombre());
         holder.TVDepartamento.setText(negocio.getDepartamento());
         holder.TVMunicipio.setText(negocio.getMunicipio());
+        holder.TVId.setText(negocio.getId());
     }
 
     @Override
@@ -82,16 +86,30 @@ public class Recycler_Negocios_Adapter extends RecyclerView.Adapter<Recycler_Neg
         }
     };
 
-    public class View_Holder_Negocio extends RecyclerView.ViewHolder{
+    public class View_Holder_Negocio extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        TextView TVNombreNegocio,TVDepartamento,TVMunicipio;
-        public View_Holder_Negocio(@NonNull View itemView) {
+        TextView TVNombreNegocio,TVDepartamento,TVMunicipio,TVId;
+        OnItemListener onItemListener;
+
+        public View_Holder_Negocio(@NonNull View itemView,OnItemListener onItemListener) {
             super(itemView);
 
             TVNombreNegocio = (TextView)itemView.findViewById(R.id.TVNombreNegocio);
             TVDepartamento = (TextView)itemView.findViewById(R.id.TVDepartamento);
             TVMunicipio = (TextView)itemView.findViewById(R.id.TVMunicipio);
+            TVId = (TextView) itemView.findViewById(R.id.TVIdentificador);
+            this.onItemListener = onItemListener;
 
+            itemView.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View view) {
+            onItemListener.onItemClick(getAdapterPosition());
+        }
+    }
+
+    public interface OnItemListener{
+        void onItemClick(int posicion);
     }
 }
