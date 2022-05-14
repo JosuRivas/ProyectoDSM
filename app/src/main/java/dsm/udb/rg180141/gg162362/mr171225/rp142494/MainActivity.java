@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
         txtRegistrarse = (TextView) findViewById(R.id.txtIrRegistrar);
         miAuth = FirebaseAuth.getInstance();
 
-
         botonIngresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                             Intent intent = new Intent(MainActivity.this,activity_pantalla_principal.class);
                             startActivity(intent);
                         }else{
-                            Toast.makeText(getApplicationContext(),"Credenciales incorrectas",Toast.LENGTH_LONG).show();
+                            Toast.makeText(MainActivity.this,"Credenciales incorrectas",Toast.LENGTH_LONG).show();
                         }
                     }
                 });

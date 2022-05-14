@@ -3,14 +3,18 @@ package dsm.udb.rg180141.gg162362.mr171225.rp142494;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,24 +27,29 @@ import java.util.ArrayList;
 import dsm.udb.rg180141.gg162362.mr171225.rp142494.adapters.Recycler_Negocios_Adapter;
 import dsm.udb.rg180141.gg162362.mr171225.rp142494.modelos.Negocio;
 
-public class Lista_Negocios extends AppCompatActivity {
+public class Lista_Negocios extends AppCompatActivity implements Recycler_Negocios_Adapter.OnItemListener {
 
     RecyclerView recyclerViewNegocios;
     Recycler_Negocios_Adapter negociosAdapter;
     ArrayList<Negocio> listaNegocios;
     DatabaseReference miDatabase;
+    Toolbar toolbar;
+    TextView idNegocio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_negocios);
 
+        Bundle datos = getIntent().getExtras();
+        String tipoNegocio = datos.getString("tipo");
         recyclerViewNegocios = findViewById(R.id.recyclerViewNegocios);
+
+        toolbar = (Toolbar) findViewById(R.id.toolbarMenu);
+        setSupportActionBar(toolbar);
 
         listaNegocios = new ArrayList<Negocio>();
         miDatabase = FirebaseDatabase.getInstance().getReference("negocios");
-        //dependiendo del tipo de negocio seleccionado en el menu, seleccionar los child que tengan tipo de negocio que se selecciono;
-
 
         recyclerViewNegocios.setLayoutManager(new LinearLayoutManager(this));
 
@@ -53,9 +62,12 @@ public class Lista_Negocios extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                     Negocio negocio = dataSnapshot.getValue(Negocio.class);
-                    listaNegocios.add(negocio);
+                    negocio.setId(dataSnapshot.getKey());
+                    if (negocio.getTipo().equals(tipoNegocio)){
+                        listaNegocios.add(negocio);
+                    }
                 }
-                negociosAdapter = new Recycler_Negocios_Adapter(getApplicationContext(),listaNegocios);
+                negociosAdapter = new Recycler_Negocios_Adapter(getApplicationContext(),listaNegocios,Lista_Negocios.this);
                 recyclerViewNegocios.setAdapter(negociosAdapter);
                 negociosAdapter.notifyDataSetChanged();
             }
@@ -65,6 +77,7 @@ public class Lista_Negocios extends AppCompatActivity {
 
             }
         });
+
 
     }
 
@@ -88,7 +101,12 @@ public class Lista_Negocios extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-    public void onClickItem(View view){
 
+    @Override
+    public void onItemClick(int posicion) {
+        String id = listaNegocios.get(posicion).getId();
+        Intent intent = new Intent(Lista_Negocios.this,contacto_negocio.class);
+        intent.putExtra("id",id);
+        startActivity(intent);
     }
 }

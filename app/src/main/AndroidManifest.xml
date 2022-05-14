@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="dsm.udb.rg180141.gg162362.mr171225.rp142494">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
         android:allowBackup="true"
@@ -9,11 +8,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoCatedra">
-
+        <activity
+            android:name=".contacto_negocio"
+            android:exported="false" />
         <activity
             android:name=".activity_pantalla_principal"
-            android:exported="false"/>
-
+            android:exported="false" />
         <activity
             android:name=".Registro_Negocio"
             android:exported="false" />
@@ -35,7 +35,8 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false"/>
+            android:exported="false" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

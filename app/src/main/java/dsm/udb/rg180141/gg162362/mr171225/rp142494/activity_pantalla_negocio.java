@@ -1,28 +1,23 @@
 package dsm.udb.rg180141.gg162362.mr171225.rp142494;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.cardview.widget.CardView;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.GridLayout;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class activity_pantalla_principal extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-
-    //VARIABLES
+public class activity_pantalla_negocio extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -85,7 +80,7 @@ public class activity_pantalla_principal extends AppCompatActivity implements Na
         return super.onOptionsItemSelected(item);
     }
 
-    public void onClickTarjeta(View vista){
+    public void onClickTarjeta2(View vista){
         String idTarjeta = String.valueOf(getResources().getResourceEntryName(vista.getId()));
         Intent intent = new Intent(activity_pantalla_principal.this,Lista_Negocios.class);
         switch (idTarjeta){
@@ -116,5 +111,4 @@ public class activity_pantalla_principal extends AppCompatActivity implements Na
         }
         startActivity(intent);
     }
-
 }

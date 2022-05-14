@@ -1,7 +1,7 @@
 package dsm.udb.rg180141.gg162362.mr171225.rp142494.modelos;
 
 public class Negocio {
-
+    private String id;
     private String nombre;
     private String departamento;
     private String municipio;
@@ -24,6 +24,14 @@ public class Negocio {
 
     public Negocio(){
 
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTipo() {

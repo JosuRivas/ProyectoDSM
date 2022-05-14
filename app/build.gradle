@@ -26,6 +26,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    namespace 'dsm.udb.rg180141.gg162362.mr171225.rp142494'
 }
 
 dependencies {
