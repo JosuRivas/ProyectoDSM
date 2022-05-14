@@ -10,13 +10,17 @@
     tools:openDrawer="start">
 
 
+
     <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         app:headerLayout="@layout/encabezado"
         app:menu="@menu/menu_principal" />
+
 
 
     <ScrollView
@@ -32,9 +36,7 @@
         <include
             android:id="@+id/toolbarMenu"
             layout="@layout/toolbar_inicio" />
-
-
-
+      
         <!--<androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
