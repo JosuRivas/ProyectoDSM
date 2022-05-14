@@ -84,29 +84,17 @@ public class activity_pantalla_negocio extends AppCompatActivity implements Navi
         String idTarjeta = String.valueOf(getResources().getResourceEntryName(vista.getId()));
         Intent intent = new Intent(activity_pantalla_principal.this,Lista_Negocios.class);
         switch (idTarjeta){
-            case "tarjetaMedico":
-                intent.putExtra("tipo","medico");
+            case "tarjetaBuscar":
+                intent.putExtra("tipo","buscar");
                 break;
-            case "tarjetaMecanico":
-                intent.putExtra("tipo","mecanico");
+            case "tarjetaIngresar":
+                intent.putExtra("tipo","ingresar");
                 break;
-            case "tarjetaGrua":
-                intent.putExtra("tipo","grua");
+            case "tarjetaEditar":
+                intent.putExtra("tipo","editar");
                 break;
-            case "tarjetaFontanero":
-                intent.putExtra("tipo","fontanero");
-                break;
-            case "tarjetaCerrajero":
-                intent.putExtra("tipo","cerrajero");
-                break;
-            case "tarjetaElectricista":
-                intent.putExtra("tipo","electricista");
-                break;
-            case "tarjetaEstilista":
-                intent.putExtra("tipo","estilista");
-                break;
-            case "tarjetaJardinero":
-                intent.putExtra("tipo","jardinero");
+            case "tarjetaBorrar":
+                intent.putExtra("tipo","borrar");
                 break;
         }
         startActivity(intent);
